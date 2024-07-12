@@ -1,0 +1,14 @@
+
+p{
+    margin: 0;
+}.container{
+    padding: 15px;
+    border-radius: 15px;
+ border: 2px solid rgb(214, 72, 96);
+}
+.message{
+font-weight: 600;
+}
+.icon{
+    color:rgb(214, 72, 96)
+}

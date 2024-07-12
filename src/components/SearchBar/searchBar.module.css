@@ -1,0 +1,52 @@
+body {
+  padding-top: 70px;
+  /* Резервне місце для вашого фіксованого хедера */
+  margin: 0;
+  /* Якщо вам потрібно позбутися відступів від краю вікна браузера */
+}
+.header {
+  margin: 0;
+  background-color: pink;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+
+  top: 0;
+}
+.inputContainer {
+  margin: 0 auto;
+  min-width: 200px;
+  max-width: 200px;
+  position: relative;
+}
+
+.input {
+  font-weight: 600;
+
+  min-width: 200px;
+  max-width: 200px;
+  padding: 15px;
+  padding-right: 50px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  transition: outline 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.input:focus {
+  outline: 2px solid rgb(214, 72, 96);
+}
+
+.btn {
+  background-color: transparent;
+  position: absolute;
+
+  top: 10px;
+  right: -55px;
+  color: rgb(214, 72, 96);
+}
+.btn:focus {
+  border: none;
+  outline: none;
+}
