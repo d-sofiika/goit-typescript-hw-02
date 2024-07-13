@@ -10,15 +10,15 @@ import ImageModal from "./components/ImageModal/ImageModal";
 
 
 
-
 function App() {
-  const [articles, setArticles] = useState([]);
-  const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
-   const [selectedImage, setSelectedImage] = useState(null);
-  const [isModalOpen, setModalOpen] = useState(false);
+
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>("");
+   const [selectedImage, setSelectedImage] = useState<TypeImage | null>(null);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ function App() {
         setError(false);
         setLoading(true);
 
-        const data = await getArticlesApi(query, page);
+        const data = await getArticlesApi<Article>(query, page);
      setArticles((prev) => [...prev, ...data]);
       } catch (error) {
         setError(true);
@@ -39,7 +39,8 @@ function App() {
     query && fetchData();
   }, [query, page]);
 
-  const handleSubmit = async (searchQuery) => {
+
+  const handleSubmit = async (searchQuery:string) => {
     setQuery(searchQuery)
     setArticles([])
     setPage(1)
@@ -50,7 +51,9 @@ function App() {
     setPage(page + 1);
   };
 
-   const openModal = (imageUrl, likes, alt_description) => {
+   const openModal = (
+  imageUrl: string,
+  likes: number,alt_description: string) => {
     setSelectedImage({imageUrl, likes, alt_description});
     setModalOpen(true);
   };
@@ -81,5 +84,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

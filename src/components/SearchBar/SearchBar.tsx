@@ -1,10 +1,10 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, FormikHelpers } from "formik";
 import css from "./searchBar.module.css";
 import { BsSearchHeart } from "react-icons/bs";
 import toast, { Toaster } from "react-hot-toast";
 
-const SearchBar = ({ submit }) => {
-  const handleSubmit = (values, actions) => {
+const SearchBar = ({ submit }:SearchBarProps) => {
+  const handleSubmit = (values:FormValues , actions: FormikHelpers<FormValues>) => {
     
     if (values.query.trim() === "") {
       toast.error("Write some words!");

@@ -1,10 +1,18 @@
 import Modal from 'react-modal';
 import css from "./imageModal.module.css"
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import React from 'react';
 Modal.setAppElement('#root'); 
 
-const ImageModal = ({ isOpen, onRequestClose, imageUrl, likes, alt_description}) => {
- const capitalizeFirstLetter = (text) => {
+type ImageModalProps = {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  imageUrl: string;
+  likes: number;
+  alt_description:string
+}
+const ImageModal:React.FC<ImageModalProps> = ({ isOpen, onRequestClose, imageUrl, likes, alt_description}) => {
+ const capitalizeFirstLetter = (text:string) => {
     if (text.length === 0) return text;
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
